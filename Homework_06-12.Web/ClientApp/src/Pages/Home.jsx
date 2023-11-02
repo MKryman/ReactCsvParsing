@@ -1,11 +1,9 @@
 import React, {useState, useEffect} from "react";
 import axios from "axios";
-import { useNavigate } from 'react-router-dom';
 
 const Home = () => {
 
     const [people, setPeople] = useState([]);
-    const nav = useNavigate();
 
     useEffect(() => {
         const loadData = async () => {
@@ -17,7 +15,7 @@ const Home = () => {
 
     const onDeleteAll = async () => {
         await axios.post('/api/people/deleteall');
-        nav("/home");
+        setPeople([]);
     }
 
     return(
